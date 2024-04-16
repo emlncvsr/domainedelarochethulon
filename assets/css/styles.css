@@ -51,7 +51,7 @@
 }
 
 body {
-  background: url(/assets/images/bg.webp), var(--main);
+  background: url(/domainedelarochethulon/assets/images/bg.webp), var(--main);
   background-size: 75%;
   color: var(--second);
   margin: 0;
