@@ -1,20 +1,22 @@
 $(document).ready(function () {
     let currentVinIndex = 0;
     const vins = $('.vin-item');
-    vins.hide().eq(currentVinIndex).show();
+    const totalVins = vins.length;
 
-    function showNextVin() {
-        vins.eq(currentVinIndex).hide();
-        currentVinIndex = (currentVinIndex + 1) % vins.length;
-        vins.eq(currentVinIndex).show();
+    function showVin(index) {
+        vins.hide();
+        $(vins[index]).show();
     }
 
-    function showPrevVin() {
-        vins.eq(currentVinIndex).hide();
-        currentVinIndex = (currentVinIndex - 1 + vins.length) % vins.length;
-        vins.eq(currentVinIndex).show();
-    }
+    $('#prev-vin').click(function () {
+        currentVinIndex = (currentVinIndex - 1 + totalVins) % totalVins;
+        showVin(currentVinIndex);
+    });
 
-    $('#prev-vin').click(showPrevVin);
-    $('#next-vin').click(showNextVin);
+    $('#next-vin').click(function () {
+        currentVinIndex = (currentVinIndex + 1) % totalVins;
+        showVin(currentVinIndex);
+    });
+
+    showVin(currentVinIndex);
 });
