@@ -1,25 +1,20 @@
 $(document).ready(function () {
     let currentVinIndex = 0;
-    const vinItems = $('.vin-item');
-    const totalVins = vinItems.length;
-
-    function displayVin(index) {
-        vinItems.hide();
-        vinItems.eq(index).show();
-    }
+    const vins = $('.vin-item');
+    vins.hide().eq(currentVinIndex).show();
 
     function showNextVin() {
-        currentVinIndex = (currentVinIndex + 1) % totalVins;
-        displayVin(currentVinIndex);
+        vins.eq(currentVinIndex).hide();
+        currentVinIndex = (currentVinIndex + 1) % vins.length;
+        vins.eq(currentVinIndex).show();
     }
 
     function showPrevVin() {
-        currentVinIndex = (currentVinIndex - 1 + totalVins) % totalVins;
-        displayVin(currentVinIndex);
+        vins.eq(currentVinIndex).hide();
+        currentVinIndex = (currentVinIndex - 1 + vins.length) % vins.length;
+        vins.eq(currentVinIndex).show();
     }
 
     $('#prev-vin').click(showPrevVin);
     $('#next-vin').click(showNextVin);
-
-    displayVin(currentVinIndex);
 });
