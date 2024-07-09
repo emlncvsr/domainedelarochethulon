@@ -2,14 +2,46 @@
 ::-webkit-scrollbar {
   width: 13px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--second); 
+  background: var(--second);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #2b2b2b;
+}
+
+.vin-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vin-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+}
+
+button#prev-vin,
+button#next-vin {
+  background: var(--second);
+  color: var(--main);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+button#prev-vin:hover,
+button#next-vin:hover {
+  background: var(--accent-color);
+  color: var(--second);
 }
