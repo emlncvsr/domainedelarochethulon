@@ -21,5 +21,5 @@ $(document).ready(function () {
     $('#prev-vin').click(showPrevVin);
     $('#next-vin').click(showNextVin);
 
-    displayVin(currentVinIndex); // Initial display
+    displayVin(currentVinIndex);
 });
