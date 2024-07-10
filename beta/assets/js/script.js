@@ -1,25 +1,22 @@
-$(document).ready(function() {
-    // Implementing the carousel functionality for vins section
-    let currentIndex = 0;
-    const vinItems = $('.vin-item');
-    const totalItems = vinItems.length;
-  
+$(document).ready(function () {
+    let currentVinIndex = 0;
+    const vins = $('.vin-item');
+    const totalVins = vins.length;
+
     function showVin(index) {
-      vinItems.hide();
-      $(vinItems[index]).show();
+        vins.hide();
+        $(vins[index]).show();
     }
-  
-    $('#prev-vin').click(function() {
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
-      showVin(currentIndex);
+
+    $('#prev-vin').click(function () {
+        currentVinIndex = (currentVinIndex - 1 + totalVins) % totalVins;
+        showVin(currentVinIndex);
     });
-  
-    $('#next-vin').click(function() {
-      currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
-      showVin(currentIndex);
+
+    $('#next-vin').click(function () {
+        currentVinIndex = (currentVinIndex + 1) % totalVins;
+        showVin(currentVinIndex);
     });
-  
-    // Initialize carousel
-    showVin(currentIndex);
-  });
-  
+
+    showVin(currentVinIndex);
+});
