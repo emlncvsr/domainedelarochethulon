@@ -45,9 +45,11 @@
 }
 
 :root {
-    --main: #0a0a0a;
+    --main: #000000;
     --second: #ececec;
     --accent-color: #6f2da8;
+    --sidebar-width: 250px;
+    --contact-height: 130px;
 }
 
 body {
@@ -63,7 +65,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 600px;
+    max-width: 1500px;
 }
 
 a,
@@ -115,6 +117,52 @@ a:hover {
 
 p {
     margin: 0;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact {
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--main);
+}
+
+#contact h1 {
+    display: none;
+}
+
+#contact-content {
+    height: var(--contact-height);
+}
+
+nav {
+    position: fixed;
+    right: 0;
+    top: var(--contact-height);
+    z-index: 1;
+    padding: 20px;
+    width: var(--sidebar-width);
+}
+
+nav:before {
+    content: "";
+    display: block;
+    background: var(--second);
+    height: 2px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 20px;
 }
 
 .right p:nth-child(2) {
@@ -281,22 +329,6 @@ h1 {
     width: 250px;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 13px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: var(--second);
-    border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #2b2b2b;
-}
-
 .vin-display {
     display: flex;
     align-items: center;
@@ -319,4 +351,17 @@ button#next-vin {
     font-size: 2rem;
     cursor: pointer;
 
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--second);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2b2b2b;
 }
