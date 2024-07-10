@@ -90,7 +90,7 @@ button:hover {
 }
 
 button.back:before {
-    content: "← ";
+    content: "â† ";
 }
 
 a button.back {
