@@ -243,13 +243,23 @@ section {
     background: var(--second);
 }
 
+#exploitation img{
+    border-radius: 5px;
+}
+
 iframe {
     width: 100%;
+    border-radius: 5px;
 }
 
 #vigne, .vigne-images{
     display: flex;
     flex-direction: column;
+    gap: 15px;
+}
+
+.vigne-images img {
+    border-radius: 5px;
 }
 
 #salons-content {
