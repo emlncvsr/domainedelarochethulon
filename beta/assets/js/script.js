@@ -1,18 +1,9 @@
 $(document).ready(function () {
-    $('.content-section').hide();
-    $('#accueil').show();
-
-    $('nav ul li a').click(function (event) {
-        event.preventDefault();
-        const target = $(this).attr('href');
-        $('.content-section').hide();
-        $(target).show();
-    });
-
     let currentVinIndex = 0;
     const vins = $('.vin-item');
     const totalVins = vins.length;
-
+    const contentSections = $('.content-section');
+    
     function showVin(index) {
         vins.hide();
         $(vins[index]).show();
@@ -27,6 +18,28 @@ $(document).ready(function () {
         currentVinIndex = (currentVinIndex + 1) % totalVins;
         showVin(currentVinIndex);
     });
+
+    $('.link').click(function (e) {
+        if ($(window).width() >= 1000) {
+            e.preventDefault();
+            const target = $(this).attr('href');
+            contentSections.hide();
+            $(target).show();
+        }
+    });
+
+    function adjustLayout() {
+        if ($(window).width() < 1000) {
+            contentSections.show();
+        } else {
+            contentSections.hide();
+            $('#accueil').show(); // Show the first section by default
+        }
+    }
+
+    $(window).resize(adjustLayout);
+
+    adjustLayout(); // Initial check
 
     showVin(currentVinIndex);
 });

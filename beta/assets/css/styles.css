@@ -15,8 +15,13 @@
 :root {
     --main: #000000;
     --second: #ececec;
+    --third: #444444;
+    --fourth: #e2d9bb;
     --accent-color: #6f2da8;
-    --background: #363131;
+    --background: url(../img/bg.webp);
+    --aside-width: 250px;
+    --page-padding: 30px;
+    --sidebar-padding: 10px;
 }
 
 body {
@@ -27,6 +32,7 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
+    padding-bottom: 60px;
 }
 
 a,
@@ -36,6 +42,10 @@ h1,
 li,
 img {
     user-select: none;
+}
+
+h1 {
+    margin: 0;
 }
 
 img:not(.header) {
@@ -54,10 +64,6 @@ button {
 
 button:hover {
     filter: brightness(0.9);
-}
-
-button.back:before {
-    content: "← ";
 }
 
 a button.back {
@@ -82,40 +88,50 @@ p {
 
 #app {
     display: flex;
-    justify-content: center;
     max-width: 1500px;
-    padding: 0 30px;
+    padding: 0 var(--page-padding);
     gap: 7.5px;
 }
 
 main {
-    width: 100%;
+    width: calc(100% - var(--aside-width) - var(--sidebar-padding));
+    display: flex;
+    flex-direction: column;
+    gap: var(--sidebar-padding);
 }
 
 aside {
-    width: 250px;
+    width: var(--aside-width);
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
     background: var(--main);
-    padding: 10px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+    position: fixed;
+    top: 0;
+    right: var(--page-padding);
 }
 
-nav{
+nav {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-nav:before{
+nav:before,
+nav:after {
     content: "";
     width: 100%;
     height: 2px;
     background: var(--second);
     display: block;
+    margin: 20px 0;
 }
 
-.link{
+.link {
     display: flex;
     gap: 5px;
 }
@@ -124,35 +140,165 @@ nav:before{
     width: 20px;
 }
 
-#contact-content {
-    line-height: 2rem;
-    font-weight: 500;
+.updated {
+    display: flex;
+    flex-direction: column;
 }
 
-#contact-content br{
-    margin-top: 10px;
+#contact-content p {
+    margin-bottom: 10px;
+    font-weight: 500;
 }
 
 section {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    background: var(--fourth);
+    color: var(--main);
+    padding: 15px;
+    border-radius: 3px;
 }
 
-header {
-    width: calc(100% - (var(--sidebar-width)));
-    height: fit-content;
+#accueil {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#accueil-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#accueil-content p:last-child {
+    display: none;
+}
+
+#actualites {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#actualites-content {
+    display: flex;
+    gap: 15px;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.news-item p {
+    text-align: center;
+}
+
+.news-item img {
+    width: 100px;
+}
+
+.vin-display {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.vin-item {
+    display: flex;
+    gap: 20px;
+}
+
+.vin-item h2 {
+    margin: 0;
+}
+
+.vin-item img {
+    width: 100px;
+    object-fit: contain;
+}
+
+.vin-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.vin-display button {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    color: var(--main);
+    border-color: var(--main);
+}
+
+.vin-display button:hover {
+    background: var(--second);
+}
+
+iframe {
+    width: 100%;
+}
+
+#vigne, .vigne-images{
+    display: flex;
+    flex-direction: column;
+}
+
+#salons-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* #salons-content p{
+    text-align: center;
+} */
+
+/* #salons-content p:before{
+    content: "・";
+} */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: var(--main);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-top: 1px solid var(--third);
+    z-index: 1;
 }
 
 ::-webkit-scrollbar {
     width: 13px;
+    background: var(--main);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--second);
+    background: var(--third);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #2b2b2b;
+}
+
+@media screen and (max-width: 1000px) {
+    aside {
+        display: none;
+    }
+
+    :root {
+        --aside-width: 0;
+    }
 }
