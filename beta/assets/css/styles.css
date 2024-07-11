@@ -106,16 +106,6 @@ section {
     gap: 15px;
 }
 
-#contact {
-    position: fixed;
-    right: 30px;
-    top: 0;
-    padding: 20px;
-    width: var(--sidebar-width);
-    height: 100vh;
-    background: var(--main);
-}
-
 #contact h1 {
     display: none;
 }
@@ -123,24 +113,6 @@ section {
 #contact-content {
     height: var(--contact-height);
     line-height: 2rem;
-}
-
-nav {
-    position: fixed;
-    right: 30px;
-    top: var(--contact-height);
-    z-index: 1;
-    padding: 20px;
-    width: var(--sidebar-width);
-}
-
-nav:before {
-    content: "";
-    display: block;
-    background: var(--second);
-    height: 2px;
-    width: 100%;
-    margin: 20px 0;
 }
 
 nav ul {

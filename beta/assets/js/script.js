@@ -1,4 +1,16 @@
 $(document).ready(function () {
+    // Navigation logic
+    $('nav a').click(function (e) {
+        e.preventDefault();
+        const target = $(this).attr('href');
+        $('.content-section').removeClass('active');
+        $(target).addClass('active');
+    });
+
+    // Show the first section by default
+    $('#accueil').addClass('active');
+
+    // Vin navigation logic
     let currentVinIndex = 0;
     const vins = $('.vin-item');
     const totalVins = vins.length;
