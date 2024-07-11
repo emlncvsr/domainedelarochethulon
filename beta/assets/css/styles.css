@@ -88,7 +88,7 @@ p {
     gap: 7.5px;
 }
 
-main{
+main {
     width: 100%;
 }
 
@@ -97,14 +97,40 @@ aside {
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    background: var(--main);
+    padding: 10px;
 }
 
-.bouchon{
+nav{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+nav:before{
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--second);
+    display: block;
+}
+
+.link{
+    display: flex;
+    gap: 5px;
+}
+
+.bouchon {
     width: 20px;
 }
 
-#contact-content{
+#contact-content {
     line-height: 2rem;
+    font-weight: 500;
+}
+
+#contact-content br{
+    margin-top: 10px;
 }
 
 section {
